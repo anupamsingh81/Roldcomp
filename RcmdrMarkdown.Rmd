@@ -1,0 +1,34 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### Your Name
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+```{r}
+pred <- prediction(ich$GCS, ich$Outcome)
+perf <- performance(pred, 'tpr', 'fpr')
+plot(perf, colorize=FALSE, add=FALSE)
+remove(perf)
+remove(pred)
+```
+
+```{r}
+pred <- prediction(ich$GCS, ich$Outcome)
+perf <- performance(pred, 'fpr', 'tpr')
+plot(perf, colorize=FALSE, add=FALSE)
+remove(perf)
+remove(pred)
+```
+
+

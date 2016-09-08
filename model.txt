@@ -1,0 +1,15 @@
+
+# JAGS model specification begins here...
+model { 
+logit(pi1) <- alpha + delta/2
+logit(pi2) <- alpha - delta/2
+r1 ~ dbin(pi1, n1)
+r2 ~ dbin(pi2, n2)
+alpha ~ dnorm(0, 0.0001)
+delta ~ dnorm(-0.255, 59.17) # Prior 1
+# delta ~ dnorm(0, 8.16) # Prior 2
+# delta ~ dunif(-10, 10) # Prior 3
+
+}
+# ... end JAGS model specification
+

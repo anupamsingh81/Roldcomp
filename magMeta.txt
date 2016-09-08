@@ -1,0 +1,13 @@
+model 
+{
+for ( i in 1:n {
+   y[i] ~ dnorm(delta[i] ,precision.y[i]);
+   v[i] <- pow(sd[i],2) ;
+    precision.y[i] <- 1/v[i];
+    delta[i]~ dnorm(theta ,precision.tau);
+    }
+    
+    precision.tau ~ dgamma(0.001 ,0.001)
+    tau <- sqrt(1/precision.tau);
+    theta ~ dnorm(0, 0.01);
+  }

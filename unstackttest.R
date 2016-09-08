@@ -1,0 +1,12 @@
+library(BEST)
+y <- BESTmcmc(Book1[,1],Book1[,2])
+plot(y)
+summary(y)
+z <- unstack(Book1)
+z
+p <- BESTmcmc(z$X1,z$X2)
+plot(p)
+plotAll(p,ROPEm = c(-3,3),ROPEeff= c(-0.2,0.2),compValm = -4 )
+library("BayesFactor")
+t.test(z$X1,z$X2)
+ttestBF(z$X1,z$X2)
